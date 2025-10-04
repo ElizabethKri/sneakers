@@ -25,4 +25,5 @@ const PumaModels = () => {
     );
 };
 
+
 export default PumaModels;

@@ -6,12 +6,14 @@ import {Route, Routes} from "react-router";
 import {Navigate, NavLink} from "react-router-dom";
 import {S} from './components/pages/_styles.ts'
 import Models from "./components/pages/models/Models.tsx";
+import {Prices} from "./components/pages/Prices.tsx";
 
 const PATH = {
     PAGE1: '/adidas',
     PAGE2: '/puma',
     PAGE3: '/abibas',
-    ERROR: '/error404'
+    ERROR: '/error404',
+    PRICE: '/price',
 }
 
 export const App = ()=> {
@@ -25,6 +27,7 @@ export const App = ()=> {
                <S.NavWrapper><NavLink to={PATH.PAGE1} >Adidas</NavLink></S.NavWrapper>
                <S.NavWrapper><NavLink to={PATH.PAGE2}>Puma</NavLink></S.NavWrapper>
                <S.NavWrapper><NavLink to={PATH.PAGE3}>Abibas</NavLink></S.NavWrapper>
+               <S.NavWrapper><NavLink to={PATH.PRICE}>Price</NavLink></S.NavWrapper>
         </div>
         <div className={styles.content}>
             <Routes>
@@ -33,6 +36,7 @@ export const App = ()=> {
                 <Route path={PATH.PAGE1} element={<PageOne/>} />
                 <Route path={PATH.PAGE2} element={<PageTwo/>} />
                 <Route path={PATH.PAGE3} element={<PageThree/>} />
+                <Route path={PATH.PRICE} element={<Prices/>} />
                 <Route path={`/:model/:id`} element={<Models/>} />
                 {/*<Route path={'/puma/:id'} element={<PumaModels/>} />*/}
               {/*  <Route path={PATH.ERROR} element={<Error404/>} /> */}
