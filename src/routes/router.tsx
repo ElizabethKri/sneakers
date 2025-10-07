@@ -6,6 +6,8 @@ import {PageThree} from "../components/pages/PageThree.tsx";
 import {Prices} from "../components/pages/Prices.tsx";
 import {App} from "../App.tsx";
 import Models from "../components/pages/models/Models.tsx";
+import ProtectedPage from "../components/pages/ProtectedPage.tsx";
+import {ProtectedRoute} from "./ProtectedRoute.tsx";
 
 const PATH = {
     ADIDAS: '/adidas',
@@ -13,7 +15,9 @@ const PATH = {
     ABIBAS: '/abibas',
     ERROR: '/error404',
     PRICE: '/price',
-    MODEL: '/:model/:id'
+    MODEL: '/:model/:id',
+    ProtectedPage: '/ProtectedPage',
+
 } as const
 
 export const router = createBrowserRouter([
@@ -42,7 +46,18 @@ export const router = createBrowserRouter([
                 path: PATH.MODEL,
                 element: <Models />,
             },
-
+            {
+                path: PATH.ProtectedPage,
+                element: (
+                    <ProtectedRoute>
+                        <ProtectedPage />
+                    </ProtectedRoute>
+                )
+            },
+            {
+                path: PATH.ERROR,
+                element: <Error404 />,
+            },
         ]
     }
 ]);

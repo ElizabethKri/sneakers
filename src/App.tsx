@@ -9,6 +9,7 @@ const PATH = {
     PAGE3: '/abibas',
     ERROR: '/error404',
     PRICE: '/price',
+    ProtectedPage: '/ProtectedPage'
 }
 
 export const App = ()=> {
@@ -23,6 +24,7 @@ export const App = ()=> {
                <S.NavWrapper><NavLink to={PATH.PAGE2}>Puma</NavLink></S.NavWrapper>
                <S.NavWrapper><NavLink to={PATH.PAGE3}>Abibas</NavLink></S.NavWrapper>
                <S.NavWrapper><NavLink to={PATH.PRICE}>Price</NavLink></S.NavWrapper>
+               <S.NavWrapper><NavLink to={PATH.ProtectedPage}>ProtectedPage</NavLink></S.NavWrapper>
         </div>
         <div className={styles.content}>
 
