@@ -5,6 +5,7 @@ import {PageTwo} from "../components/pages/PageTwo.tsx";
 import {PageThree} from "../components/pages/PageThree.tsx";
 import {Prices} from "../components/pages/Prices.tsx";
 import {App} from "../App.tsx";
+import Models from "../components/pages/models/Models.tsx";
 
 const PATH = {
     ADIDAS: '/adidas',
@@ -12,6 +13,7 @@ const PATH = {
     ABIBAS: '/abibas',
     ERROR: '/error404',
     PRICE: '/price',
+    MODEL: '/:model/:id'
 } as const
 
 export const router = createBrowserRouter([
@@ -35,6 +37,10 @@ export const router = createBrowserRouter([
             {
                 path: PATH.PRICE,
                 element: <Prices />,
+            },
+            {
+                path: PATH.MODEL,
+                element: <Models />,
             },
 
         ]
