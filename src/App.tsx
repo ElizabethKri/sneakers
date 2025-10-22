@@ -1,5 +1,5 @@
 import styles from "./components/Site.module.css";
-import {NavLink, Outlet} from "react-router-dom";
+import {Link, NavLink, Outlet, useNavigate} from "react-router-dom";
 import {S} from './components/pages/_styles.ts';
 
 
@@ -13,6 +13,12 @@ const PATH = {
 }
 
 export const App = ()=> {
+
+    const navigate = useNavigate()
+    const navigateHandler = () => {
+        navigate(-1)
+    }
+
   return (
     <div>
       <div className={styles.header}><h1>HEADER</h1></div>
@@ -27,6 +33,11 @@ export const App = ()=> {
                <S.NavWrapper><NavLink to={PATH.ProtectedPage}>ProtectedPage</NavLink></S.NavWrapper>
         </div>
         <div className={styles.content}>
+            <div className={styles.HorizontalNavigation}>
+                <Link to={PATH.PAGE1} className={styles.LinkLikeButton} >Главная страница</Link>
+            </div>
+
+            <button onClick={navigateHandler} className={styles.ButtonLikeLink} >Назад</button>
 
             <Outlet />
 
@@ -45,7 +56,7 @@ export const App = ()=> {
             {/*</Routes>*/}
         </div>
       </div>
-      <div className={styles.footer}>abibas 2023</div>
+      <div className={styles.footer}>abibas 2025</div>
     </div>
   );
 }
